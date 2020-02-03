@@ -509,6 +509,24 @@ methods like mouseMove are dependent on screen resolution, so, the method may pe
     java.util.List<WebElement> textboxes = driver.findElements(By.xpath("//input[@type='text'[@class='inputtext']"));
 
 
+- XPath Locator -> View Example
+- CSSSelector Locator -> View Example
+- ClassName Locator -> View Example
+- ID Locator -> View Example
+- Name Locator -> View Example
+- LinkText Locator -> View Example
+- PartialLinkText Locator -> View Example
+- TagName Locator -> View Example
+
+TimeoutException - This exception will be thrown when command execution does not complete In given time.
+NoSuchElementException - WebDriver software testing tool will throw this exception when element could not be found on page of software web application.
+NoAlertPresentException - This exception will be generated when webdriver ties to switch to alert popup but there Is not any alert present on page.
+ElementNotSelectableException - It will be thrown when webdriver Is trying to select unselectable element.
+ElementNotVisibleException - Thrown when webdriver Is not able to Interact with element which Is available In DOM but It Is hidden.
+StaleElementReferenceException
+
+
+
 CSS Selectors
 
 
@@ -527,7 +545,18 @@ build your xpath with using variables
     
     driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div[2]/article/div/table/tbody/tr["+sRow+"]/td["+sCol+"]")).getText();
     
-    
+## Selenium Grid
+
+    java -jar selenium-server-standalone-2.52.0.jar -port 4444 -role hub
+
+    java -jar selenium-server-standalone-2.52.0.jar -role node -Dwebdriver.ie.driver="D:/IEDriverServer.exe" -Dwebdriver.chrome.driver="D:/chromedriver.exe" -hub http://localhost:4444/grid/register -port 5566
+
+    java -jar selenium-server-standalone-2.52.0.jar -role node -Dwebdriver.ie.driver="D:/IEDriverServer.exe" -Dwebdriver.chrome.driver="D:/chromedriver.exe" -hub http://localhost:4444/grid/register -port 5566 -browser browserName=firefox,maxInstances=2 -browser browserName=chrome,maxInstances=2 -browser browserName=iexplore,maxInstances=2
+
+    java -jar selenium-server-standalone-2.52.0.jar -role node -Dwebdriver.ie.driver="D:/IEDriverServer.exe" -Dwebdriver.chrome.driver="D:/chromedriver.exe" -hub http://localhost:4444/grid/register -port 5566 -browser browserName=firefox,maxInstances=2 -browser browserName=chrome,maxInstances=2 -browser browserName=iexplore,maxInstances=2 -maxSession 2  -timeout 20000
+
+
+
     
 String
 
