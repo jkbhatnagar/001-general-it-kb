@@ -1,10 +1,91 @@
 # OSX and Unix Knowledge-base
 
+## Hide/Show Hidden Files/Folders
+    COMMAND + SHIFT + .
 
+## Set up BASH Profile 
 
+    // if file does not exist, create one:
+    touch ~/.bash_profile
+    
+    // Open in Textedit
+    open ~/.bash_profile
+    
+    //Set Env Variable
+    export env_varname=somevalue
+    
+    //Add values to Path Variable
+    export PATH=$PATH:/usr/local/bin/carthage
+    
+    // Save and close the file
+    // Use latest bash profile without restarting Terminal window.
+    source ~/.bash_profile
+    
+    // Check Sys Var
+    echo $env_varname
+    
+    // Check Path Var
+    echo $PATH
 
+## Set up SSH Private/Public Key Pair (generally used for secure communication between your Mac and Git provider)
 
+    cd ~
+    
+    ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+    
+    // Enter location and passphrase (your should remember and securely store the passphrase)
+    // default location is ~/.ssh
+    // default name is id_rsa (private key) and id_rsa.pub (public key)
+    // if you want different SSH key for different application, set a different name like app_id_rsa
+    
+    //Copy your key to clipboard and paste if as required in your application
+    pbcopy < ~/.ssh/id_rsa.pub
+    
+    // Add private key to SSH Agent
+    ssh-add -K ~/.ssh/id_rsa
 
+## Set-up Mac Homebrew
+
+    // Homebrew is Dev software/package manager for Mac.
+    
+    // Install XCode Command line Tools
+    xcode-select --install
+    
+    // Install Homebrew
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    
+    brew update
+    
+    brew doctor
+    
+    //To list all apps installed by Homebrew    
+    brew list
+    
+    //To remove an installed application    
+    brew remove packagename 
+    
+    //To see what packages are out of date but not to upgrade them    
+    brew outdated
+    
+    //To see what upgrade packages all or singular    
+    brew update
+    brew update packagename    
+    brew install wget
+    
+    // Uninstall (rarely required)
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall)"
+    
+    // install graphical apps
+    brew cask search appname
+    brew cask search appname
+    brew cask uninstall appname
+    
+    //  install UNIX and open-source utilities
+    brew search appname
+    brew search appname
+    brew uninstall appname
+    
+    
 
 ## Shell Scripting
 
